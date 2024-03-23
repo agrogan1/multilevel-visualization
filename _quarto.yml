@@ -1,21 +1,54 @@
 project:
   type: book
+  output-dir: docs
 
 book:
   title: "Multilevel Visualization"
   author: "Andrew Grogan-Kaylor"
   date: "today"
+  cover-image: bookcover.png
+  downloads: [pdf]
+  twitter-card: true
+  open-graph: true
+  site-url: https://agrogan1.github.io/multilevel-visualization/
+  search: true
+  repo-url: https://github.com/agrogan1/multilevel-visualization
+  repo-actions: [issue]
+  sharing: [twitter, facebook, linkedin]  
   chapters:
     - index.qmd
     - references.qmd
-
+  navbar:
+    background: purple
+      
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: default
+      dark: vapor
+    css: multilevel-visualization.css
+    lightbox: true
+    toc: true
+    execute:
+      echo: true
+      warning: false
+      freeze: auto
   pdf:
-    documentclass: scrreprt
+    lot: true
+    lof: true
+    keep-tex: true
+    fig-width: 6
+    execute:
+      echo: true
+      warning: false   
+      freeze: auto
+  docx:
+    reference-doc: markstat.docx
+    execute:
+      echo: true
+      warning: false
 
 
 
