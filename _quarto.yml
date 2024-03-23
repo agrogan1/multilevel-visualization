@@ -2,13 +2,11 @@ project:
   type: book
 
 book:
-  title: "booktest"
-  author: "Norah Jones"
-  date: "3/23/2024"
+  title: "Multilevel Visualization"
+  author: "Andrew Grogan-Kaylor"
+  date: "today"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
     - references.qmd
 
 bibliography: references.bib
