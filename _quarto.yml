@@ -21,7 +21,7 @@ book:
   navbar:
     background: purple
       
-bibliography: references.bib
+bibliography: multilevel-visualization.bib
 
 format:
   html:
