@@ -17,6 +17,7 @@ book:
   sharing: [twitter, facebook, linkedin]  
   chapters:
     - index.qmd
+    - graphs.qmd
     - references.qmd
   navbar:
     background: purple

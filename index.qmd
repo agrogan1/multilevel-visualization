@@ -1,9 +1,54 @@
-# Preface {.unnumbered}
+# Multilevel Visualization
 
-This is a Quarto book.
+## Introduction
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>. One reference is by [@knuth84].
+Below, I describe the use of [Stata](https://www.stata.com/), [R](https://www.r-project.org/), and [Julia](https://www.julialang.org/) to visualize multilevel models. 
+
+## The Data {#sec-data}
+
+The examples use the `simulated_multilevel_data.dta` file from [*Multilevel Thinking*](https://agrogan1.github.io/multilevel-thinking/simulated-multi-country-data.html). Here is a [direct link](https://github.com/agrogan1/multilevel-multilingual/raw/main/simulated_multilevel_data.dta) to download the data.
 
 ```{r}
-1 + 1
+#| echo: false
+#| output: false
+
+file.copy("../multilevel-thinking/simulate-and-analyze-multilevel-data/simulated_multilevel_data.dta", 
+          ".",
+          overwrite = TRUE) # copy over most recent version
+
+file.copy("../multilevel-thinking/simulate-and-analyze-multilevel-data/simulated_multilevel_longitudinal_data.dta", 
+          ".",
+          overwrite = TRUE) # copy over most recent version
+
+```
+
+```{r}
+#| echo: false
+#| label: tbl-multilingual1
+#| tbl-cap: Sample of Simulated Multilevel Data
+
+library(haven) # read Stata
+
+library(pander) # nice tables
+
+df <- read_dta("simulated_multilevel_data.dta") # read in data
+
+pander(head(df)) # nice table
+
+```
+
+```{r}
+#| echo: false
+#| output: false
+
+# KEEP THIS CHUNK FOR INFORMATIONAL PURPOSES!!!
+
+library(JuliaCall)
+
+# OS dependent location of Julia
+
+switch(Sys.info()[['sysname']],
+       Windows= {julia_setup(JULIA_HOME = "C:/Users/agrogan/AppData/Local/Programs/Julia-1.10.2/bin/")},
+       Darwin = {julia_setup(JULIA_HOME = "/Applications/Julia-1.8.app/Contents/Resources/julia/bin")})
+
 ```

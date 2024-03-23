@@ -1,0 +1,39 @@
+# Graphs
+
+## Scatterplots
+
+::: {.panel-tabset group="language"}
+
+### Stata
+
+### R
+
+### Julia
+
+:::
+
+## Line Plots
+
+::: {.panel-tabset group="language"}
+
+### Stata
+
+### R
+
+### Julia
+
+:::
+
+## Spaghetti Plots
+
+::: {.panel-tabset group="language"}
+
+### Stata
+
+### R
+
+### Julia
+
+:::
+
+

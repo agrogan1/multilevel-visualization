@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Andrew Grogan-Kaylor">
-<meta name="dcterms.date" content="2024-03-23">
 
-<title>Multilevel Visualization</title>
+<title>Multilevel Visualization - 2&nbsp; Graphs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./graphs.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -44,9 +43,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,16 +73,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="multilevel-visualization.css">
-<meta property="og:title" content="Multilevel Visualization">
-<meta property="og:image" content="https://agrogan1.github.io/multilevel-visualization/bookcover.png">
+<meta property="og:title" content="Multilevel Visualization - 2&nbsp; Graphs">
 <meta property="og:site_name" content="Multilevel Visualization">
-<meta property="og:image:height" content="589">
-<meta property="og:image:width" content="715">
-<meta name="twitter:title" content="Multilevel Visualization">
-<meta name="twitter:image" content="https://agrogan1.github.io/multilevel-visualization/bookcover.png">
-<meta name="twitter:image-height" content="589">
-<meta name="twitter:image-width" content="715">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Multilevel Visualization - 2&nbsp; Graphs">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -136,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multilevel Visualization</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./graphs.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -150,13 +140,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multilevel Visualization</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="./graphs.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphs</span></span></a>
   </div>
 </li>
@@ -176,11 +166,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#multilevel-visualization" id="toc-multilevel-visualization" class="nav-link active" data-scroll-target="#multilevel-visualization"><span class="header-section-number">1</span> Multilevel Visualization</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">1.1</span> Introduction</a></li>
-  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data"><span class="header-section-number">1.2</span> The Data</a></li>
-  </ul></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link active" data-scroll-target="#scatterplots"><span class="header-section-number">2.1</span> Scatterplots</a></li>
+  <li><a href="#line-plots" id="toc-line-plots" class="nav-link" data-scroll-target="#line-plots"><span class="header-section-number">2.2</span> Line Plots</a></li>
+  <li><a href="#spaghetti-plots" id="toc-spaghetti-plots" class="nav-link" data-scroll-target="#spaghetti-plots"><span class="header-section-number">2.3</span> Spaghetti Plots</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/agrogan1/multilevel-visualization/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -189,26 +177,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Multilevel Visualization</h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphs</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Andrew Grogan-Kaylor </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 23, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -218,118 +194,58 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><a href="bookcover.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="bookcover.png" title="Multilevel Visualization" class="quarto-cover-image img-fluid"></a></p>
-<section id="multilevel-visualization" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Multilevel Visualization</h1>
-<section id="introduction" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
-<p>Below, I describe the use of <a href="https://www.stata.com/">Stata</a>, <a href="https://www.r-project.org/">R</a>, and <a href="https://www.julialang.org/">Julia</a> to visualize multilevel models.</p>
+<section id="scatterplots" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="scatterplots"><span class="header-section-number">2.1</span> Scatterplots</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Stata</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Julia</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+
+</div>
+</div>
+</div>
 </section>
-<section id="sec-data" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="sec-data"><span class="header-section-number">1.2</span> The Data</h2>
-<p>The examples use the <code>simulated_multilevel_data.dta</code> file from <a href="https://agrogan1.github.io/multilevel-thinking/simulated-multi-country-data.html"><em>Multilevel Thinking</em></a>. Here is a <a href="https://github.com/agrogan1/multilevel-multilingual/raw/main/simulated_multilevel_data.dta">direct link</a> to download the data.</p>
-<div class="cell">
-<div id="tbl-multilingual1" class="cell quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-multilingual1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1.1: Sample of Simulated Multilevel Data
-</figcaption>
-<div aria-describedby="tbl-multilingual1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="do-not-create-environment cell table table-sm table-striped small">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 7%">
-<col style="width: 11%">
-<col style="width: 7%">
-<col style="width: 10%">
-<col style="width: 27%">
-<col style="width: 11%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">country</th>
-<th style="text-align: center;">HDI</th>
-<th style="text-align: center;">family</th>
-<th style="text-align: center;">id</th>
-<th style="text-align: center;">group</th>
-<th style="text-align: center;">physical_punishment</th>
-<th style="text-align: center;">warmth</th>
-<th style="text-align: center;">outcome</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">69</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">1.1</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">59.18</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">69</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">1.2</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">61.54</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">69</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">1.3</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">51.87</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">69</td>
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">1.4</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">0</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">51.71</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">69</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">1.5</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">55.88</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">69</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;">1.6</td>
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">60.78</td>
-</tr>
-</tbody>
-</table>
+<section id="line-plots" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="line-plots"><span class="header-section-number">2.2</span> Line Plots</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Stata</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Julia</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+
 </div>
 </div>
-</figure>
+</div>
+</section>
+<section id="spaghetti-plots" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="spaghetti-plots"><span class="header-section-number">2.3</span> Spaghetti Plots</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Stata</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Julia</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+
+</div>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -866,41 +782,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link  aria-label=" &lt;span="" visualization&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multilevel Visualization</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./graphs.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Graphs</span>">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphs</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/agrogan1/multilevel-visualization/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/agrogan1/multilevel-visualization/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
