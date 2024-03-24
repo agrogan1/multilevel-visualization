@@ -95,7 +95,7 @@ df = DataFrame(load("simulated_multilevel_data.dta"))
 
 using StatsPlots
 
-@df df scatter(:outcome, :warmth, 
+@df df scatter(:warmth, :outcome, 
                title = "Outcome by Parental Warmth",
                ylabel = "outcome",
                xlabel = "parental warmth")
@@ -182,7 +182,7 @@ To make our plot with a smoother in Julia, we set the `markercolor` and `markers
 
 using StatsPlots
 
-@df dfL scatter(:outcome, :t, 
+@df dfL scatter(:t, :outcome, 
                title = "Outcome by Time",
                ylabel = "outcome",
                xlabel = "time",
