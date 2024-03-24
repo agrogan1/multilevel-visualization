@@ -1,0 +1,21 @@
+{
+  "hash": "eb45f3b762bfa7a615252c1eea2b3622",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Graphs\n\n\n\n::: {.cell}\n\n:::\n\n\n\n## Scatterplots\n\n::: {.panel-tabset group=\"language\"}\n\n### Stata\n\n#### Get The Data\n\n\n\n::: {.cell collectcode='true'}\n\n```{.stata .cell-code}\n\nuse simulated_multilevel_data.dta\n\n```\n:::\n\n\n\n#### Scatterplot\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\ntwoway scatter outcome warmth, ///\n  xtitle(\"warmth\") ytitle(\"outcome\") ///\n  title(\"Outcome by Parental Warmth\") \n\nquietly graph export scatter.png, replace\n\n```\n:::\n\n\n\n![Outcome by Parental Warmth (Stata)](scatter.png){#fig-Stata}\n\n### R\n\n#### Get The Data\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(haven)\n\ndf <- read_dta(\"simulated_multilevel_data.dta\")\n```\n:::\n\n\n\n#### Scatterplot\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\nggplot(df,\n       aes(x = warmth,\n           y = outcome)) +\n  geom_point() +\n  labs(title = \"Outcome by Parental Warmth\")\n```\n\n::: {.cell-output-display}\n![Outcome by Parental Warmth (R)](graphs_files/figure-pdf/fig-R-1.pdf){#fig-R fig-pos='H'}\n:::\n:::\n\n\n\n### Julia\n\n#### Get The Data\n\n\n\n::: {.cell}\n\n```{.julia .cell-code}\nusing Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta\n\ndf = DataFrame(load(\"simulated_multilevel_data.dta\"))\n```\n:::\n\n\n\n#### Scatterplot\n\n\n\n::: {.cell}\n\n```{.julia .cell-code}\nusing StatsPlots\n\n@df df scatter(:outcome, :warmth, \n               title = \"Outcome by Parental Warmth\",\n               ylabel = \"outcome\",\n               xlabel = \"parental warmth\")\n```\n\n::: {.cell-output-display}\n![Outcome by Parental Warmth (Julia)](graphs_files/figure-pdf/fig-Julia-J1.pdf){#fig-Julia fig-pos='H'}\n:::\n:::\n\n\n\n:::\n\n## Line Graph\n\n::: {.panel-tabset group=\"language\"}\n\n### Stata\n\n#### Get The Data \n\n\n\n::: {.cell collectcode='true'}\n\n```{.stata .cell-code}\n\nuse simulated_multilevel_longitudinal_data.dta\n\n```\n:::\n\n\n\n#### Line Graph\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\ntwoway lfit outcome t, ///\n  xtitle(\"time\") ytitle(\"outcome\") ///\n  title(\"Outcome by Time\") \n\nquietly graph export lfitlongitudinal.png, replace\n\n```\n:::\n\n\n\n![Outcome by Parental Warmth (Stata)](lfitlongitudinal.png){#fig-Statalongitudinal}\n\n### R\n\n#### Get The Data \n\n\n\n::: {.cell collectcode='true'}\n\n```{.stata .cell-code}\n\nuse simulated_multilevel_longitudinal_data.dta\n\n```\n:::\n\n\n\n#### Line Graph\n\n\n\n::: {.cell}\n\n```{.stata .cell-code}\ntwoway lfit outcome t, ///\n  xtitle(\"time\") ytitle(\"outcome\") ///\n  title(\"Outcome by Time\") \n\nquietly graph export lfitlongitudinal.png, replace\n\n```\n:::\n\n\n\n![Outcome by Parental Warmth (Stata)](lfitlongitudinal.png){#fig-Statalongitudinal}\n\n### Julia\n\n#### Get The Data\n\n\n\n::: {.cell}\n\n```{.julia .cell-code}\nusing Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta\n\ndfL = DataFrame(load(\"simulated_multilevel_longitudinal_data.dta\"))\n```\n:::\n\n\n\n#### Line Graph\n\nTo make our plot with a smoother in Julia, we set the `markercolor` and `markerstrokecolor` to be *white*, and the `smooth` option to `:true`.\n\n\n\n::: {.cell}\n\n```{.julia .cell-code}\nusing StatsPlots\n\n@df dfL scatter(:outcome, :t, \n               title = \"Outcome by Parental Warmth\",\n               ylabel = \"outcome\",\n               xlabel = \"time\",\n               markercolor = \"white\",\n               markerstrokecolor = \"white\",\n               smooth=:true)\n```\n\n::: {.cell-output-display}\n![Outcome by Parental Warmth (Julia)](graphs_files/figure-pdf/fig-Julialongitudinal-J1.pdf){#fig-Julialongitudinal fig-pos='H'}\n:::\n:::\n\n\n\n:::\n\n## Spaghetti Plots\n\n::: {.panel-tabset group=\"language\"}\n\n### Stata\n\n### R\n\n### Julia\n\n:::\n\n\n",
+    "supporting": [
+      "graphs_files/figure-pdf"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}
