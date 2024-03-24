@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Below, I describe the use of [Stata](https://www.stata.com/), [R](https://www.r-project.org/), and [Julia](https://www.julialang.org/) to visualize multilevel models. 
+Below, I describe the use of [Stata](https://www.stata.com/) [@StataCorp2021:3], [R](https://www.r-project.org/) [@RProgram], and [Julia](https://www.julialang.org/) [@JuliaArticle] to visualize multilevel models. 
 
 ## The Data {#sec-data}
 

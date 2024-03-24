@@ -215,7 +215,7 @@
 
 \title{Multilevel Visualization}
 \author{Andrew Grogan-Kaylor}
-\date{2024-03-23}
+\date{2024-03-24}
 
 \begin{document}
 \maketitle
@@ -230,25 +230,309 @@
 \listoftables
 \bookmarksetup{startatroot}
 
-\chapter*{Preface}\label{preface}
-\addcontentsline{toc}{chapter}{Preface}
+\chapter{Multilevel Visualization}\label{multilevel-visualization}
 
-\markboth{Preface}{Preface}
+\section{Introduction}\label{introduction}
 
-This is a Quarto book.
+Below, I describe the use of \href{https://www.stata.com/}{Stata}
+(StataCorp 2021), \href{https://www.r-project.org/}{R}, and
+\href{https://www.julialang.org/}{Julia} to visualize multilevel models.
 
-To learn more about Quarto books visit
-\url{https://quarto.org/docs/books}. One reference is by (Knuth 1984).
+\section{The Data}\label{sec-data}
+
+The examples use the \texttt{simulated\_multilevel\_data.dta} file from
+\href{https://agrogan1.github.io/multilevel-thinking/simulated-multi-country-data.html}{\emph{Multilevel
+Thinking}}. Here is a
+\href{https://github.com/agrogan1/multilevel-multilingual/raw/main/simulated_multilevel_data.dta}{direct
+link} to download the data.
+
+\begin{longtable}[]{@{}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0750}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1125}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.0750}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1000}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.2750}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1125}}
+  >{\centering\arraybackslash}p{(\columnwidth - 14\tabcolsep) * \real{0.1250}}@{}}
+
+\caption{\label{tbl-multilingual1}Sample of Simulated Multilevel Data}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\centering
+country
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+HDI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+family
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+id
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+group
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+physical\_punishment
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+warmth
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+outcome
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 69 & 1 & 1.1 & 2 & 2 & 3 & 59.18 \\
+1 & 69 & 2 & 1.2 & 2 & 4 & 0 & 61.54 \\
+1 & 69 & 3 & 1.3 & 1 & 4 & 4 & 51.87 \\
+1 & 69 & 4 & 1.4 & 2 & 0 & 6 & 51.71 \\
+1 & 69 & 5 & 1.5 & 2 & 3 & 2 & 55.88 \\
+1 & 69 & 6 & 1.6 & 1 & 5 & 3 & 60.78 \\
+
+\end{longtable}
+
+\bookmarksetup{startatroot}
+
+\chapter{Graphs}\label{graphs}
+
+\section{Scatterplots}\label{scatterplots}
+
+\subsection{Stata}
+
+\subsubsection{Get The Data}\label{get-the-data}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DecValTok{1} \SpecialCharTok{+} \DecValTok{1}
+
+\KeywordTok{use}\NormalTok{ simulated\_multilevel\_data.dta}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{verbatim}
-[1] 2
-\end{verbatim}
+\subsubsection{Scatterplot}\label{scatterplot}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{twoway} \KeywordTok{scatter}\NormalTok{ outcome warmth, }\CommentTok{///}
+  \BaseNTok{xtitle}\NormalTok{(}\StringTok{"warmth"}\NormalTok{) }\BaseNTok{ytitle}\NormalTok{(}\StringTok{"outcome"}\NormalTok{) }\CommentTok{///}
+  \BaseNTok{title}\NormalTok{(}\StringTok{"Outcome by Parental Warmth"}\NormalTok{) }
+
+\KeywordTok{quietly} \KeywordTok{graph} \KeywordTok{export} \KeywordTok{scatter}\NormalTok{.png, }\KeywordTok{replace}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{scatter.png}
+
+}
+
+\caption{\label{fig-Stata}Outcome by Parental Warmth (Stata)}
+
+\end{figure}%
+
+\subsection{R}
+
+\subsubsection{Get The Data}\label{get-the-data-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(haven)}
+
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read\_dta}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Scatterplot}\label{scatterplot-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\FunctionTok{ggplot}\NormalTok{(df,}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ warmth,}
+           \AttributeTok{y =}\NormalTok{ outcome)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Outcome by Parental Warmth"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{graphs_files/figure-pdf/fig-R-1.pdf}
+
+}
+
+\caption{\label{fig-R}Outcome by Parental Warmth (R)}
+
+\end{figure}%
+
+\subsection{Julia}
+
+\subsubsection{Get The Data}\label{get-the-data-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{using} \BuiltInTok{Tables}\NormalTok{, }\BuiltInTok{MixedModels}\NormalTok{, }\BuiltInTok{StatFiles}\NormalTok{, }\BuiltInTok{DataFrames}\NormalTok{, }\BuiltInTok{CategoricalArrays}\NormalTok{, }\BuiltInTok{DataFramesMeta}
+
+\NormalTok{df }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Scatterplot}\label{scatterplot-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{using} \BuiltInTok{StatsPlots}
+
+\PreprocessorTok{@df}\NormalTok{ df }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{outcome, }\OperatorTok{:}\NormalTok{warmth, }
+\NormalTok{               title }\OperatorTok{=} \StringTok{"Outcome by Parental Warmth"}\NormalTok{,}
+\NormalTok{               ylabel }\OperatorTok{=} \StringTok{"outcome"}\NormalTok{,}
+\NormalTok{               xlabel }\OperatorTok{=} \StringTok{"parental warmth"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{graphs_files/figure-pdf/fig-Julia-J1.pdf}
+
+}
+
+\caption{\label{fig-Julia}Outcome by Parental Warmth (Julia)}
+
+\end{figure}%
+
+\section{Line Graph}\label{line-graph}
+
+\subsection{Stata}
+
+\subsubsection{Get The Data}\label{get-the-data-3}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\KeywordTok{use}\NormalTok{ simulated\_multilevel\_longitudinal\_data.dta}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Line Graph}\label{line-graph-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{twoway} \KeywordTok{lfit}\NormalTok{ outcome t, }\CommentTok{///}
+  \BaseNTok{xtitle}\NormalTok{(}\StringTok{"time"}\NormalTok{) }\BaseNTok{ytitle}\NormalTok{(}\StringTok{"outcome"}\NormalTok{) }\CommentTok{///}
+  \BaseNTok{title}\NormalTok{(}\StringTok{"Outcome by Time"}\NormalTok{) }
+
+\KeywordTok{quietly} \KeywordTok{graph} \KeywordTok{export}\NormalTok{ lfitlongitudinal.png, }\KeywordTok{replace}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{lfitlongitudinal.png}
+
+}
+
+\caption{\label{fig-Statalongitudinal}Outcome by Parental Warmth
+(Stata)}
+
+\end{figure}%
+
+\subsection{R}
+
+\subsubsection{Get The Data}\label{get-the-data-4}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\KeywordTok{use}\NormalTok{ simulated\_multilevel\_longitudinal\_data.dta}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Line Graph}\label{line-graph-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{twoway} \KeywordTok{lfit}\NormalTok{ outcome t, }\CommentTok{///}
+  \BaseNTok{xtitle}\NormalTok{(}\StringTok{"time"}\NormalTok{) }\BaseNTok{ytitle}\NormalTok{(}\StringTok{"outcome"}\NormalTok{) }\CommentTok{///}
+  \BaseNTok{title}\NormalTok{(}\StringTok{"Outcome by Time"}\NormalTok{) }
+
+\KeywordTok{quietly} \KeywordTok{graph} \KeywordTok{export}\NormalTok{ lfitlongitudinal.png, }\KeywordTok{replace}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{lfitlongitudinal.png}
+
+}
+
+\caption{\label{fig-Statalongitudinal}Outcome by Parental Warmth
+(Stata)}
+
+\end{figure}%
+
+\subsection{Julia}
+
+\subsubsection{Get The Data}\label{get-the-data-5}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{using} \BuiltInTok{Tables}\NormalTok{, }\BuiltInTok{MixedModels}\NormalTok{, }\BuiltInTok{StatFiles}\NormalTok{, }\BuiltInTok{DataFrames}\NormalTok{, }\BuiltInTok{CategoricalArrays}\NormalTok{, }\BuiltInTok{DataFramesMeta}
+
+\NormalTok{dfL }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_longitudinal\_data.dta"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Line Graph}\label{line-graph-3}
+
+To make our plot with a smoother in Julia, we set the
+\texttt{markercolor} and \texttt{markerstrokecolor} to be \emph{white},
+and the \texttt{smooth} option to \texttt{:true}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{using} \BuiltInTok{StatsPlots}
+
+\PreprocessorTok{@df}\NormalTok{ dfL }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{outcome, }\OperatorTok{:}\NormalTok{t, }
+\NormalTok{               title }\OperatorTok{=} \StringTok{"Outcome by Time"}\NormalTok{,}
+\NormalTok{               ylabel }\OperatorTok{=} \StringTok{"outcome"}\NormalTok{,}
+\NormalTok{               xlabel }\OperatorTok{=} \StringTok{"time"}\NormalTok{,}
+\NormalTok{               markercolor }\OperatorTok{=} \StringTok{"white"}\NormalTok{,}
+\NormalTok{               markerstrokecolor }\OperatorTok{=} \StringTok{"white"}\NormalTok{,}
+\NormalTok{               smooth}\OperatorTok{=:}\ConstantTok{true}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{graphs_files/figure-pdf/fig-Julialongitudinal-J1.pdf}
+
+}
+
+\caption{\label{fig-Julialongitudinal}Outcome by Parental Warmth
+(Julia)}
+
+\end{figure}%
+
+\section{Spaghetti Plots}\label{spaghetti-plots}
+
+\subsection{Stata}
+
+\subsection{R}
+
+\subsection{Julia}
 
 \bookmarksetup{startatroot}
 
@@ -259,9 +543,9 @@ To learn more about Quarto books visit
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\bibitem[\citeproctext]{ref-knuth84}
-Knuth, Donald E. 1984. {``Literate Programming.''} \emph{Comput. J.} 27
-(2): 97--111. \url{https://doi.org/10.1093/comjnl/27.2.97}.
+\bibitem[\citeproctext]{ref-StataCorp2021:2}
+StataCorp. 2021. \emph{Stata 17 Multilevel Mixed Effects Reference
+Manual}. Stata Press.
 
 \end{CSLReferences}
 
