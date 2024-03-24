@@ -1,0 +1,17 @@
+{
+  "hash": "0cbe59a9beebf06ddc161515fecbe483",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Graphs\n\n\n::: {.cell}\n\n:::\n\n\n## Scatterplots\n\n::: {.panel-tabset group=\"language\"}\n\n### Stata\n\n\n::: {.cell collectcode='true'}\n\n```{.stata .cell-code}\n\nuse simulated_multilevel_data.dta\n\n```\n:::\n\n::: {.cell}\n\n```{.stata .cell-code}\ntwoway scatter outcome warmth, ///\n  xtitle(\"warmth\") ytitle(\"outcome\") ///\n  title(\"Outcome by Parental Warmth\") \n\nquietly graph export scatter.png, replace\n\n```\n:::\n\n\n![Outcome by Parental Warmth (Stata)](scatter.png){#fig-Stata}\n\n### R\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(haven)\n\ndf <- read_dta(\"simulated_multilevel_data.dta\")\n```\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\nggplot(df,\n       aes(x = warmth,\n           y = outcome)) +\n  geom_point() +\n  labs(title = \"Outcome by Parental Warmth\")\n```\n\n::: {.cell-output-display}\n![Outcome by Parental Warmth (R)](graphs_files/figure-html/fig-R-1.png){#fig-R width=672}\n:::\n:::\n\n\n### Julia\n\n:::\n\n## Line Plots\n\n::: {.panel-tabset group=\"language\"}\n\n### Stata\n\n### R\n\n### Julia\n\n:::\n\n## Spaghetti Plots\n\n::: {.panel-tabset group=\"language\"}\n\n### Stata\n\n### R\n\n### Julia\n\n:::\n\n\n",
+    "supporting": [
+      "graphs_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
