@@ -1,0 +1,82 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Multilevel Visualization",
+    "section": "",
+    "text": "1 Multilevel Visualization",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Multilevel Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#introduction",
+    "href": "index.html#introduction",
+    "title": "Multilevel Visualization",
+    "section": "1.1 Introduction",
+    "text": "1.1 Introduction\nBelow, I describe the use of Stata (StataCorp 2021), R (R Core Team 2023), and Julia (Bezanson et al. 2017) to visualize multilevel models.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Multilevel Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-data",
+    "href": "index.html#sec-data",
+    "title": "Multilevel Visualization",
+    "section": "1.2 The Data",
+    "text": "1.2 The Data\nThe examples use the simulated_multilevel_data.dta file from Multilevel Thinking. Here is a direct link to download the data.\n\n\n\n\nTable 1.1: Sample of Simulated Multilevel Data\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncountry\nHDI\nfamily\nid\ngroup\nphysical_punishment\nwarmth\noutcome\n\n\n\n\n1\n69\n1\n1.1\n2\n2\n3\n59.18\n\n\n1\n69\n2\n1.2\n2\n4\n0\n61.54\n\n\n1\n69\n3\n1.3\n1\n4\n4\n51.87\n\n\n1\n69\n4\n1.4\n2\n0\n6\n51.71\n\n\n1\n69\n5\n1.5\n2\n3\n2\n55.88\n\n\n1\n69\n6\n1.6\n1\n5\n3\n60.78\n\n\n\n\n\n\n\n\n\n\n\n\nBezanson, Jeff, Alan Edelman, Stefan Karpinski, and Viral B. Shah. 2017. “Julia: A Fresh Approach to Numerical Computing.” SIAM Review 59 (1): 65–98. https://doi.org/10.1137/141000671.\n\n\nR Core Team. 2023. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing. https://www.R-project.org/.\n\n\nStataCorp. 2021. Stata 17 Graphics Reference Manual. Stata Press.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Multilevel Visualization</span>"
+    ]
+  },
+  {
+    "objectID": "graphs.html",
+    "href": "graphs.html",
+    "title": "2  Graphs",
+    "section": "",
+    "text": "2.1 Scatterplots",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphs</span>"
+    ]
+  },
+  {
+    "objectID": "graphs.html#scatterplots",
+    "href": "graphs.html#scatterplots",
+    "title": "2  Graphs",
+    "section": "",
+    "text": "StataRJulia\n\n\n\n2.1.0.1 Get The Data\n\n\nuse simulated_multilevel_data.dta\n\n\n\n2.1.0.2 Scatterplot\n\ntwoway scatter outcome warmth, ///\n  xtitle(\"warmth\") ytitle(\"outcome\") ///\n  title(\"Outcome by Parental Warmth\") \n\nquietly graph export scatter.png, replace\n\n\n\n\n\n\n\nFigure 2.1: Outcome by Parental Warmth (Stata)\n\n\n\n\n\n\n\n2.1.0.3 Get The Data\n\nlibrary(haven)\n\ndf &lt;- read_dta(\"simulated_multilevel_data.dta\")\n\n\n\n2.1.0.4 Scatterplot\n\nlibrary(ggplot2)\n\nggplot(df,\n       aes(x = warmth,\n           y = outcome)) +\n  geom_point() +\n  labs(title = \"Outcome by Parental Warmth\")\n\n\n\n\n\n\n\nFigure 2.2: Outcome by Parental Warmth (R)\n\n\n\n\n\n\n\n\n\n2.1.0.5 Get The Data\n\nusing Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta\n\ndf = DataFrame(load(\"simulated_multilevel_data.dta\"))\n\n\n\n2.1.0.6 Scatterplot\n\nusing StatsPlots\n\n@df df scatter(:outcome, :warmth, \n               title = \"Outcome by Parental Warmth\",\n               ylabel = \"outcome\",\n               xlabel = \"parental warmth\")\n\n\n\n\n\n\n\nFigure 2.3: Outcome by Parental Warmth (Julia)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphs</span>"
+    ]
+  },
+  {
+    "objectID": "graphs.html#line-graph",
+    "href": "graphs.html#line-graph",
+    "title": "2  Graphs",
+    "section": "2.2 Line Graph",
+    "text": "2.2 Line Graph\n\nStataRJulia\n\n\n\n2.2.0.1 Get The Data\n\n\nuse simulated_multilevel_longitudinal_data.dta\n\n\n\n2.2.0.2 Line Graph\n\ntwoway lfit outcome t, ///\n  xtitle(\"time\") ytitle(\"outcome\") ///\n  title(\"Outcome by Time\") \n\nquietly graph export lfitlongitudinal.png, replace\n\n\n\n\n\n\n\nFigure 2.4: Outcome by Parental Warmth (Stata)\n\n\n\n\n\n\n\n2.2.0.3 Get The Data\n\n\nuse simulated_multilevel_longitudinal_data.dta\n\n\n\n2.2.0.4 Line Graph\n\ntwoway lfit outcome t, ///\n  xtitle(\"time\") ytitle(\"outcome\") ///\n  title(\"Outcome by Time\") \n\nquietly graph export lfitlongitudinal.png, replace\n\n\n\n\n\n\n\nFigure 2.5: Outcome by Parental Warmth (Stata)\n\n\n\n\n\n\n\n2.2.0.5 Get The Data\n\nusing Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta\n\ndfL = DataFrame(load(\"simulated_multilevel_longitudinal_data.dta\"))\n\n\n\n2.2.0.6 Line Graph\nTo make our plot with a smoother in Julia, we set the markercolor and markerstrokecolor to be white, and the smooth option to :true.\n\nusing StatsPlots\n\n@df dfL scatter(:outcome, :t, \n               title = \"Outcome by Time\",\n               ylabel = \"outcome\",\n               xlabel = \"time\",\n               markercolor = \"white\",\n               markerstrokecolor = \"white\",\n               smooth=:true)\n\n\n\n\n\n\n\nFigure 2.6: Outcome by Parental Warmth (Julia)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphs</span>"
+    ]
+  },
+  {
+    "objectID": "graphs.html#spaghetti-plots",
+    "href": "graphs.html#spaghetti-plots",
+    "title": "2  Graphs",
+    "section": "2.3 Spaghetti Plots",
+    "text": "2.3 Spaghetti Plots\n\nStataRJulia\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: Outcome by Parental Warmth (Stata)\nFigure 2.2: Outcome by Parental Warmth (R)\nFigure 2.3: Outcome by Parental Warmth (Julia)\nFigure 2.4: Outcome by Parental Warmth (Stata)\nFigure 2.5: Outcome by Parental Warmth (Stata)\nFigure 2.6: Outcome by Parental Warmth (Julia)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphs</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Bezanson, Jeff, Alan Edelman, Stefan Karpinski, and Viral B. Shah. 2017.\n“Julia: A Fresh Approach to Numerical Computing.” SIAM\nReview 59 (1): 65–98. https://doi.org/10.1137/141000671.\n\n\nR Core Team. 2023. R: A Language and Environment for Statistical\nComputing. Vienna, Austria: R Foundation for Statistical Computing.\nhttps://www.R-project.org/.\n\n\nStataCorp. 2021. Stata 17 Graphics Reference Manual. Stata\nPress.",
+    "crumbs": [
+      "References"
+    ]
+  }
+]
