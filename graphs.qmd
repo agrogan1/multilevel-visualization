@@ -183,7 +183,7 @@ To make our plot with a smoother in Julia, we set the `markercolor` and `markers
 using StatsPlots
 
 @df dfL scatter(:outcome, :t, 
-               title = "Outcome by Parental Warmth",
+               title = "Outcome by Time",
                ylabel = "outcome",
                xlabel = "time",
                markercolor = "white",
