@@ -200,6 +200,30 @@ using StatsPlots
 
 ### Stata
 
+#### Get The Data
+
+```{stata, collectcode=TRUE}
+
+use simulated_multilevel_longitudinal_data.dta
+
+```
+
+#### Spaghetti Plot
+
+```{stata}
+#| fig-height: 3
+
+spagplot outcome t, ///
+  id(country) ///
+  xtitle("time") ytitle("outcome") ///
+  title("Outcome by Time") 
+
+quietly graph export spagplot.png, replace
+
+```
+
+![Outcome by Parental Warmth (Stata)](spagplot.png){#fig-Stataspagplot}
+
 ### R
 
 ### Julia
