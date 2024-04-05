@@ -25,7 +25,7 @@ julia_setup(JULIA_HOME = "/Applications/Julia-1.8.app/Contents/Resources/julia/b
 
 ```{stata, collectcode=TRUE}
 
-use simulated_multilevel_data.dta
+use simulated_multilevel_longitudinal_data.dta
 
 ```
 
@@ -34,15 +34,15 @@ use simulated_multilevel_data.dta
 ```{stata}
 #| fig-height: 3
 
-twoway scatter outcome warmth, ///
-  xtitle("warmth") ytitle("outcome") ///
+twoway scatter outcome t, ///
+  xtitle("time") ytitle("outcome") ///
   title("Outcome by Parental Warmth") 
 
 quietly graph export scatter.png, replace
 
 ```
 
-![Outcome by Parental Warmth (Stata)](scatter.png){#fig-Stata}
+![Outcome by Time (Stata)](scatter.png){#fig-Stata}
 
 ### R
 
@@ -135,24 +135,28 @@ quietly graph export lfitlongitudinal.png, replace
 
 ### R
 
-#### Get The Data 
+#### Get The Data
 
-```{stata, collectcode=TRUE}
+```{r}
 
-use simulated_multilevel_longitudinal_data.dta
+library(haven)
+
+df <- read_dta("simulated_multilevel_longitudinal_data.dta")
 
 ```
 
 #### Line Graph
 
-```{stata}
+```{r}
 #| fig-height: 3
 
-twoway lfit outcome t, ///
-  xtitle("time") ytitle("outcome") ///
-  title("Outcome by Time") 
+library(ggplot2)
 
-quietly graph export lfitlongitudinal.png, replace
+ggplot(df,
+       aes(y = outcome,
+           x = t)) +
+  geom_smooth(method = "lm")
+
 
 ```
 
@@ -196,6 +200,8 @@ using StatsPlots
 
 ## Spaghetti Plots
 
+A *spaghetti plot* might be considered the most *multilevel* of the visualizations here considered. A spaghetti plot shows the group specific slopes and intercepts for all of the groups in the data. 
+
 ::: {.panel-tabset group="language"}
 
 ### Stata
@@ -226,7 +232,16 @@ quietly graph export spagplot.png, replace
 
 ### R
 
+#### Get The Data
+
+#### Spaghetti Plot
+
 ### Julia
+
+#### Get The Data
+
+#### Spaghetti Plot
+
 
 :::
 
