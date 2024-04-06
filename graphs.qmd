@@ -25,7 +25,7 @@ julia_setup(JULIA_HOME = "/Applications/Julia-1.8.app/Contents/Resources/julia/b
 
 ```{stata, collectcode=TRUE}
 
-use simulated_multilevel_longitudinal_data.dta
+use simulated_multilevel_data.dta
 
 ```
 
@@ -34,15 +34,15 @@ use simulated_multilevel_longitudinal_data.dta
 ```{stata}
 #| fig-height: 3
 
-twoway scatter outcome t, ///
-  xtitle("time") ytitle("outcome") ///
+twoway scatter outcome warmth, ///
+  xtitle("warmth") ytitle("outcome") ///
   title("Outcome by Parental Warmth") 
 
 quietly graph export scatter.png, replace
 
 ```
 
-![Outcome by Time (Stata)](scatter.png){#fig-Stata}
+![Outcome by Parental Warmth (Stata)](scatter.png){#fig-Stata}
 
 ### R
 
@@ -114,7 +114,7 @@ using StatsPlots
 
 ```{stata, collectcode=TRUE}
 
-use simulated_multilevel_longitudinal_data.dta
+use simulated_multilevel_data.dta
 
 ```
 
@@ -123,15 +123,15 @@ use simulated_multilevel_longitudinal_data.dta
 ```{stata}
 #| fig-height: 3
 
-twoway lfit outcome t, ///
-  xtitle("time") ytitle("outcome") ///
-  title("Outcome by Time") 
+twoway lfit outcome warmth, ///
+  xtitle("warmth") ytitle("outcome") ///
+  title("Outcome by Parental Warmth") 
 
-quietly graph export lfitlongitudinal.png, replace
+quietly graph export lfit.png, replace
 
 ```
 
-![Outcome by Parental Warmth (Stata)](lfitlongitudinal.png){#fig-Statalongitudinal}
+![Outcome by Parental Warmth (Stata)](lfit.png){#fig-Statalfit}
 
 ### R
 
@@ -141,7 +141,7 @@ quietly graph export lfitlongitudinal.png, replace
 
 library(haven)
 
-df <- read_dta("simulated_multilevel_longitudinal_data.dta")
+df <- read_dta("simulated_multilevel_data.dta")
 
 ```
 
@@ -149,18 +149,18 @@ df <- read_dta("simulated_multilevel_longitudinal_data.dta")
 
 ```{r}
 #| fig-height: 3
+#| label: fig-Rlfit
+#| fig-cap: "Outcome by Parental Warmth (R)"
 
 library(ggplot2)
 
 ggplot(df,
        aes(y = outcome,
-           x = t)) +
-  geom_smooth(method = "lm")
-
+           x = warmth)) +
+  geom_smooth(method = "lm") +
+labs(title = "Outcome by Parental Warmth")
 
 ```
-
-![Outcome by Parental Warmth (Stata)](lfitlongitudinal.png){#fig-Statalongitudinal}
 
 ### Julia
 
@@ -171,7 +171,7 @@ ggplot(df,
 
 using Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta
 
-dfL = DataFrame(load("simulated_multilevel_longitudinal_data.dta"))
+dfL = DataFrame(load("simulated_multilevel_data.dta"))
 
 ```
 
@@ -181,15 +181,15 @@ To make our plot with a smoother in Julia, we set the `markercolor` and `markers
 
 ```{julia}
 #| fig-height: 3
-#| label: fig-Julialongitudinal
+#| label: fig-Julialfit
 #| fig-cap: "Outcome by Parental Warmth (Julia)"
 
 using StatsPlots
 
-@df dfL scatter(:t, :outcome, 
-               title = "Outcome by Time",
+@df dfL scatter(:warmth, :outcome, 
+               title = "Outcome by Parental Warmth",
                ylabel = "outcome",
-               xlabel = "time",
+               xlabel = "warmth",
                markercolor = "white",
                markerstrokecolor = "white",
                smooth=:true)
@@ -206,11 +206,13 @@ A *spaghetti plot* might be considered the most *multilevel* of the visualizatio
 
 ### Stata
 
+In Stata, spaghetti plots are most easily generated using the user written `spagplot` command. Type `findit spagplot` to install this command.
+
 #### Get The Data
 
 ```{stata, collectcode=TRUE}
 
-use simulated_multilevel_longitudinal_data.dta
+use simulated_multilevel_data.dta
 
 ```
 
@@ -219,10 +221,10 @@ use simulated_multilevel_longitudinal_data.dta
 ```{stata}
 #| fig-height: 3
 
-spagplot outcome t, ///
+spagplot outcome warmth, ///
   id(country) ///
-  xtitle("time") ytitle("outcome") ///
-  title("Outcome by Time") 
+  xtitle("parental warmth") ytitle("outcome") ///
+  title("Outcome by Parental Warmth") 
 
 quietly graph export spagplot.png, replace
 
@@ -234,11 +236,44 @@ quietly graph export spagplot.png, replace
 
 #### Get The Data
 
+```{r}
+
+library(haven)
+
+df <- read_dta("simulated_multilevel_data.dta")
+
+```
+
 #### Spaghetti Plot
+
+```{r}
+#| fig-height: 3
+#| label: fig-Rspagplot
+#| fig-cap: "Outcome by Parental Warmth (R)"
+
+library(ggplot2)
+
+ggplot(df,
+       aes(y = outcome,
+           x = warmth)) +
+  geom_smooth(method = "lm") +
+  geom_smooth(aes(color = country), method = "lm") +
+labs(title = "Outcome by Parental Warmth")
+
+```
 
 ### Julia
 
 #### Get The Data
+
+```{julia}
+#| output: false
+
+using Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta
+
+dfL = DataFrame(load("simulated_multilevel_data.dta"))
+
+```
 
 #### Spaghetti Plot
 
