@@ -34,7 +34,7 @@
     "href": "graphs.html",
     "title": "2  Graphs",
     "section": "",
-    "text": "2.1 Scatterplots",
+    "text": "2.1 Scatterplots\nA scatterplot is one of the most basic of all data visualizations. At the same time, a scatterplot can be tremendously informative because it provides: the location of every data point (data points may be overprinted); a sense of the distribution of both the x and y variables; and a sense of the overall trend in the relationship between the two variables, if there is one.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphs</span>"
     ]
@@ -64,7 +64,7 @@
     "href": "graphs.html#spaghetti-plots",
     "title": "2  Graphs",
     "section": "2.3 Spaghetti Plots",
-    "text": "2.3 Spaghetti Plots\n\nStataRJulia\n\n\n\nspagplot outcome t, ///\n  id(country)\n  xtitle(\"time\") ytitle(\"outcome\") ///\n  title(\"Outcome by Time\") \n\nquietly graph export spagplot.png, replace\n\ncommand xtitle is unrecognized\nr(199);\n\nr(199);\n\n\n\n\n\n\n\n\nFigure 2.7: Outcome by Parental Warmth (Stata)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: Outcome by Parental Warmth (Stata)\nFigure 2.2: Outcome by Parental Warmth (R)\nFigure 2.3: Outcome by Parental Warmth (Julia)\nFigure 2.4: Outcome by Parental Warmth (Stata)\nFigure 2.5: Outcome by Parental Warmth (Stata)\nFigure 2.6: Outcome by Parental Warmth (Julia)\nFigure 2.7: Outcome by Parental Warmth (Stata)",
+    "text": "2.3 Spaghetti Plots\nA spaghetti plot might be considered the most multilevel of the visualizations here considered. A spaghetti plot shows the group specific slopes and intercepts for all of the groups in the data.\n\nStataRJulia\n\n\nIn Stata, spaghetti plots are most easily generated using the user written spagplot command. Type findit spagplot to install this command.\n\n2.3.0.1 Get The Data\n\n\nuse simulated_multilevel_data.dta\n\n\n\n2.3.0.2 Spaghetti Plot\n\nspagplot outcome warmth, ///\n  id(country) ///\n  xtitle(\"parental warmth\") ytitle(\"outcome\") ///\n  title(\"Outcome by Parental Warmth\") \n\nquietly graph export spagplot.png, replace\n\n\n\n\n\n\n\nFigure 2.7: Outcome by Parental Warmth (Stata)\n\n\n\n\n\n\n\n2.3.0.3 Get The Data\n\nlibrary(haven)\n\ndf &lt;- read_dta(\"simulated_multilevel_data.dta\")\n\n\n\n2.3.0.4 Spaghetti Plot\n\nlibrary(ggplot2)\n\ndf$country &lt;- factor(df$country)\n\nggplot(df,\n       aes(y = outcome,\n           x = warmth)) +\n  geom_smooth(aes(color = country,\n                  group = country), \n              method = \"lm\",\n              se = FALSE) +\n    geom_smooth(method = \"lm\", linewidth = 3) +\nlabs(title = \"Outcome by Parental Warmth\")\n\n\n\n\n\n\n\nFigure 2.8: Outcome by Parental Warmth (R)\n\n\n\n\n\n\n\n\n\n2.3.0.5 Get The Data\n\nusing Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta\n\ndfL = DataFrame(load(\"simulated_multilevel_data.dta\"))\n\n\n\n2.3.0.6 Spaghetti Plot\n\nusing StatsPlots\n\n@df dfL scatter(:warmth, :outcome, \n               title = \"Outcome by Parental Warmth\",\n               ylabel = \"outcome\",\n               xlabel = \"warmth\",\n               markercolor = \"white\",\n               markerstrokecolor = \"white\",\n               group = :country,\n               legend = false,\n               smooth=:true)\n\n\n\n\n\n\n\nFigure 2.9: Outcome by Parental Warmth (Julia)\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 2.1: Outcome by Parental Warmth (Stata)\nFigure 2.2: Outcome by Parental Warmth (R)\nFigure 2.3: Outcome by Parental Warmth (Julia)\nFigure 2.4: Outcome by Parental Warmth (Stata)\nFigure 2.5: Outcome by Parental Warmth (R)\nFigure 2.6: Outcome by Parental Warmth (Julia)\nFigure 2.7: Outcome by Parental Warmth (Stata)\nFigure 2.8: Outcome by Parental Warmth (R)\nFigure 2.9: Outcome by Parental Warmth (Julia)",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphs</span>"
     ]
@@ -77,6 +77,16 @@
     "text": "Bezanson, Jeff, Alan Edelman, Stefan Karpinski, and Viral B. Shah. 2017.\n“Julia: A Fresh Approach to Numerical Computing.” SIAM\nReview 59 (1): 65–98. https://doi.org/10.1137/141000671.\n\n\nCash, Roseanne. 2017. “Roseanne Cash Reads \"Power\" by Adrienne\nRich.” In The Universe in Verse.\n\n\nLovelace, Ada King. 1992. Ada: The Enchantress of Numbers: A\nSelection from the Letters of Lord Byron’s\nDaughter and Her Description of the First Computer. Edited by Betty\nA. Toole. Strawberry Press.\n\n\nR Core Team. 2023. R: A Language and Environment for Statistical\nComputing. Vienna, Austria: R Foundation for Statistical Computing.\nhttps://www.R-project.org/.\n\n\nStataCorp. 2021. Stata 17 Graphics Reference Manual. Stata\nPress.",
     "crumbs": [
       "References"
+    ]
+  },
+  {
+    "objectID": "graphs.html#line-graph-linear-trend",
+    "href": "graphs.html#line-graph-linear-trend",
+    "title": "2  Graphs",
+    "section": "2.2 Line Graph (Linear Trend)",
+    "text": "2.2 Line Graph (Linear Trend)\nA line graph of the data focuses in on the linear trend in the data.\n\nStataRJulia\n\n\n\n2.2.0.1 Get The Data\n\n\nuse simulated_multilevel_data.dta\n\n\n\n2.2.0.2 Line Graph\n\ntwoway lfit outcome warmth, ///\n  xtitle(\"warmth\") ytitle(\"outcome\") ///\n  title(\"Outcome by Parental Warmth\") \n\nquietly graph export lfit.png, replace\n\n\n\n\n\n\n\nFigure 2.4: Outcome by Parental Warmth (Stata)\n\n\n\n\n\n\n\n2.2.0.3 Get The Data\n\nlibrary(haven)\n\ndf &lt;- read_dta(\"simulated_multilevel_data.dta\")\n\n\n\n2.2.0.4 Line Graph\n\nlibrary(ggplot2)\n\nggplot(df,\n       aes(y = outcome,\n           x = warmth)) +\n  geom_smooth(method = \"lm\") +\nlabs(title = \"Outcome by Parental Warmth\")\n\n\n\n\n\n\n\nFigure 2.5: Outcome by Parental Warmth (R)\n\n\n\n\n\n\n\n\n\n2.2.0.5 Get The Data\n\nusing Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta\n\ndfL = DataFrame(load(\"simulated_multilevel_data.dta\"))\n\n\n\n2.2.0.6 Line Graph\nTo make our plot with a smoother in Julia, we set the markercolor and markerstrokecolor to be white, and the smooth option to :true.\n\nusing StatsPlots\n\n@df dfL scatter(:warmth, :outcome, \n               title = \"Outcome by Parental Warmth\",\n               ylabel = \"outcome\",\n               xlabel = \"warmth\",\n               markercolor = \"white\",\n               markerstrokecolor = \"white\",\n               smooth=:true)\n\n\n\n\n\n\n\nFigure 2.6: Outcome by Parental Warmth (Julia)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Graphs</span>"
     ]
   }
 ]

@@ -17,7 +17,7 @@ julia_setup(JULIA_HOME = "/Applications/Julia-1.8.app/Contents/Resources/julia/b
 
 ## Scatterplots
 
-A scatterplot is one of the most basic of all data visualizations. At the same time, a scatterplot can be tremendously informative because it provides: the location of every data point (data points may be overprinted); a sense of the distribution of both the *x* and *y* variables; and a sense of the overall trend in the relationship betweeen the two variables, if there is one.
+A scatterplot is one of the most basic of all data visualizations. At the same time, a scatterplot can be tremendously informative because it provides: the location of every data point (data points may be overprinted); a sense of the distribution of both the *x* and *y* variables; and a sense of the overall trend in the relationship between the two variables, if there is one.
 
 ::: {.panel-tabset group="language"}
 
@@ -257,11 +257,16 @@ df <- read_dta("simulated_multilevel_data.dta")
 
 library(ggplot2)
 
+df$country <- factor(df$country)
+
 ggplot(df,
        aes(y = outcome,
            x = warmth)) +
-  geom_smooth(method = "lm") +
-  geom_smooth(aes(color = country), method = "lm") +
+  geom_smooth(aes(color = country,
+                  group = country), 
+              method = "lm",
+              se = FALSE) +
+    geom_smooth(method = "lm", linewidth = 3) +
 labs(title = "Outcome by Parental Warmth")
 
 ```
@@ -281,6 +286,24 @@ dfL = DataFrame(load("simulated_multilevel_data.dta"))
 
 #### Spaghetti Plot
 
+```{julia}
+#| fig-height: 3
+#| label: fig-Juliaspagplot
+#| fig-cap: "Outcome by Parental Warmth (Julia)"
+
+using StatsPlots
+
+@df dfL scatter(:warmth, :outcome, 
+               title = "Outcome by Parental Warmth",
+               ylabel = "outcome",
+               xlabel = "warmth",
+               markercolor = "white",
+               markerstrokecolor = "white",
+               group = :country,
+               legend = false,
+               smooth=:true)
+
+```
 
 :::
 
