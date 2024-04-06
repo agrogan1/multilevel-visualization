@@ -215,7 +215,7 @@
 
 \title{Multilevel Visualization}
 \author{Andrew Grogan-Kaylor}
-\date{2024-04-03}
+\date{2024-04-06}
 
 \begin{document}
 \maketitle
@@ -313,6 +313,13 @@ outcome
 \chapter{Graphs}\label{graphs}
 
 \section{Scatterplots}\label{scatterplots}
+
+A scatterplot is one of the most basic of all data visualizations. At
+the same time, a scatterplot can be tremendously informative because it
+provides: the location of every data point (data points may be
+overprinted); a sense of the distribution of both the \emph{x} and
+\emph{y} variables; and a sense of the overall trend in the relationship
+between the two variables, if there is one.
 
 \subsection{Stata}
 
@@ -424,7 +431,9 @@ outcome
 
 \end{figure}%
 
-\section{Line Graph}\label{line-graph}
+\section{Line Graph (Linear Trend)}\label{line-graph-linear-trend}
+
+A line graph of the data focuses in on the linear trend in the data.
 
 \subsection{Stata}
 
@@ -433,19 +442,19 @@ outcome
 \begin{Shaded}
 \begin{Highlighting}[]
 
-\KeywordTok{use}\NormalTok{ simulated\_multilevel\_longitudinal\_data.dta}
+\KeywordTok{use}\NormalTok{ simulated\_multilevel\_data.dta}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Line Graph}\label{line-graph-1}
+\subsubsection{Line Graph}\label{line-graph}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{twoway} \KeywordTok{lfit}\NormalTok{ outcome t, }\CommentTok{///}
-  \BaseNTok{xtitle}\NormalTok{(}\StringTok{"time"}\NormalTok{) }\BaseNTok{ytitle}\NormalTok{(}\StringTok{"outcome"}\NormalTok{) }\CommentTok{///}
-  \BaseNTok{title}\NormalTok{(}\StringTok{"Outcome by Time"}\NormalTok{) }
+\KeywordTok{twoway} \KeywordTok{lfit}\NormalTok{ outcome warmth, }\CommentTok{///}
+  \BaseNTok{xtitle}\NormalTok{(}\StringTok{"warmth"}\NormalTok{) }\BaseNTok{ytitle}\NormalTok{(}\StringTok{"outcome"}\NormalTok{) }\CommentTok{///}
+  \BaseNTok{title}\NormalTok{(}\StringTok{"Outcome by Parental Warmth"}\NormalTok{) }
 
-\KeywordTok{quietly} \KeywordTok{graph} \KeywordTok{export}\NormalTok{ lfitlongitudinal.png, }\KeywordTok{replace}
+\KeywordTok{quietly} \KeywordTok{graph} \KeywordTok{export} \KeywordTok{lfit}\NormalTok{.png, }\KeywordTok{replace}
 \end{Highlighting}
 \end{Shaded}
 
@@ -453,12 +462,11 @@ outcome
 
 \centering{
 
-\includegraphics{lfitlongitudinal.png}
+\includegraphics{lfit.png}
 
 }
 
-\caption{\label{fig-Statalongitudinal}Outcome by Parental Warmth
-(Stata)}
+\caption{\label{fig-Statalfit}Outcome by Parental Warmth (Stata)}
 
 \end{figure}%
 
@@ -468,33 +476,35 @@ outcome
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(haven)}
 
-\KeywordTok{use}\NormalTok{ simulated\_multilevel\_longitudinal\_data.dta}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read\_dta}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Line Graph}\label{line-graph-2}
+\subsubsection{Line Graph}\label{line-graph-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{twoway} \KeywordTok{lfit}\NormalTok{ outcome t, }\CommentTok{///}
-  \BaseNTok{xtitle}\NormalTok{(}\StringTok{"time"}\NormalTok{) }\BaseNTok{ytitle}\NormalTok{(}\StringTok{"outcome"}\NormalTok{) }\CommentTok{///}
-  \BaseNTok{title}\NormalTok{(}\StringTok{"Outcome by Time"}\NormalTok{) }
+\FunctionTok{library}\NormalTok{(ggplot2)}
 
-\KeywordTok{quietly} \KeywordTok{graph} \KeywordTok{export}\NormalTok{ lfitlongitudinal.png, }\KeywordTok{replace}
+\FunctionTok{ggplot}\NormalTok{(df,}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ outcome,}
+           \AttributeTok{x =}\NormalTok{ warmth)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Outcome by Parental Warmth"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\begin{figure}[H]
 
 \centering{
 
-\includegraphics{lfitlongitudinal.png}
+\includegraphics{graphs_files/figure-pdf/fig-Rlfit-1.pdf}
 
 }
 
-\caption{\label{fig-Statalongitudinal}Outcome by Parental Warmth
-(Stata)}
+\caption{\label{fig-Rlfit}Outcome by Parental Warmth (R)}
 
 \end{figure}%
 
@@ -506,11 +516,11 @@ outcome
 \begin{Highlighting}[]
 \ImportTok{using} \BuiltInTok{Tables}\NormalTok{, }\BuiltInTok{MixedModels}\NormalTok{, }\BuiltInTok{StatFiles}\NormalTok{, }\BuiltInTok{DataFrames}\NormalTok{, }\BuiltInTok{CategoricalArrays}\NormalTok{, }\BuiltInTok{DataFramesMeta}
 
-\NormalTok{dfL }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_longitudinal\_data.dta"}\NormalTok{))}
+\NormalTok{dfL }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\subsubsection{Line Graph}\label{line-graph-3}
+\subsubsection{Line Graph}\label{line-graph-2}
 
 To make our plot with a smoother in Julia, we set the
 \texttt{markercolor} and \texttt{markerstrokecolor} to be \emph{white},
@@ -520,10 +530,10 @@ and the \texttt{smooth} option to \texttt{:true}.
 \begin{Highlighting}[]
 \ImportTok{using} \BuiltInTok{StatsPlots}
 
-\PreprocessorTok{@df}\NormalTok{ dfL }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{t, }\OperatorTok{:}\NormalTok{outcome, }
-\NormalTok{               title }\OperatorTok{=} \StringTok{"Outcome by Time"}\NormalTok{,}
+\PreprocessorTok{@df}\NormalTok{ dfL }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{warmth, }\OperatorTok{:}\NormalTok{outcome, }
+\NormalTok{               title }\OperatorTok{=} \StringTok{"Outcome by Parental Warmth"}\NormalTok{,}
 \NormalTok{               ylabel }\OperatorTok{=} \StringTok{"outcome"}\NormalTok{,}
-\NormalTok{               xlabel }\OperatorTok{=} \StringTok{"time"}\NormalTok{,}
+\NormalTok{               xlabel }\OperatorTok{=} \StringTok{"warmth"}\NormalTok{,}
 \NormalTok{               markercolor }\OperatorTok{=} \StringTok{"white"}\NormalTok{,}
 \NormalTok{               markerstrokecolor }\OperatorTok{=} \StringTok{"white"}\NormalTok{,}
 \NormalTok{               smooth}\OperatorTok{=:}\ConstantTok{true}\NormalTok{)}
@@ -534,22 +544,145 @@ and the \texttt{smooth} option to \texttt{:true}.
 
 \centering{
 
-\includegraphics{graphs_files/figure-pdf/fig-Julialongitudinal-J1.pdf}
+\includegraphics{graphs_files/figure-pdf/fig-Julialfit-J1.pdf}
 
 }
 
-\caption{\label{fig-Julialongitudinal}Outcome by Parental Warmth
-(Julia)}
+\caption{\label{fig-Julialfit}Outcome by Parental Warmth (Julia)}
 
 \end{figure}%
 
 \section{Spaghetti Plots}\label{spaghetti-plots}
 
+A \emph{spaghetti plot} might be considered the most \emph{multilevel}
+of the visualizations here considered. A spaghetti plot shows the group
+specific slopes and intercepts for all of the groups in the data.
+
 \subsection{Stata}
+
+In Stata, spaghetti plots are most easily generated using the user
+written \texttt{spagplot} command. Type \texttt{findit\ spagplot} to
+install this command.
+
+\subsubsection{Get The Data}\label{get-the-data-6}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\KeywordTok{use}\NormalTok{ simulated\_multilevel\_data.dta}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Spaghetti Plot}\label{spaghetti-plot}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{spagplot outcome warmth, }\CommentTok{///}
+\NormalTok{  id(country) }\CommentTok{///}
+  \BaseNTok{xtitle}\NormalTok{(}\StringTok{"parental warmth"}\NormalTok{) }\BaseNTok{ytitle}\NormalTok{(}\StringTok{"outcome"}\NormalTok{) }\CommentTok{///}
+  \BaseNTok{title}\NormalTok{(}\StringTok{"Outcome by Parental Warmth"}\NormalTok{) }
+
+\KeywordTok{quietly} \KeywordTok{graph} \KeywordTok{export}\NormalTok{ spagplot.png, }\KeywordTok{replace}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+\centering{
+
+\includegraphics{spagplot.png}
+
+}
+
+\caption{\label{fig-Stataspagplot}Outcome by Parental Warmth (Stata)}
+
+\end{figure}%
 
 \subsection{R}
 
+\subsubsection{Get The Data}\label{get-the-data-7}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(haven)}
+
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{read\_dta}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Spaghetti Plot}\label{spaghetti-plot-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\NormalTok{df}\SpecialCharTok{$}\NormalTok{country }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(df}\SpecialCharTok{$}\NormalTok{country)}
+
+\FunctionTok{ggplot}\NormalTok{(df,}
+       \FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ outcome,}
+           \AttributeTok{x =}\NormalTok{ warmth)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ country,}
+                  \AttributeTok{group =}\NormalTok{ country), }
+              \AttributeTok{method =} \StringTok{"lm"}\NormalTok{,}
+              \AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =} \StringTok{"lm"}\NormalTok{, }\AttributeTok{linewidth =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Outcome by Parental Warmth"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{graphs_files/figure-pdf/fig-Rspagplot-1.pdf}
+
+}
+
+\caption{\label{fig-Rspagplot}Outcome by Parental Warmth (R)}
+
+\end{figure}%
+
 \subsection{Julia}
+
+\subsubsection{Get The Data}\label{get-the-data-8}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{using} \BuiltInTok{Tables}\NormalTok{, }\BuiltInTok{MixedModels}\NormalTok{, }\BuiltInTok{StatFiles}\NormalTok{, }\BuiltInTok{DataFrames}\NormalTok{, }\BuiltInTok{CategoricalArrays}\NormalTok{, }\BuiltInTok{DataFramesMeta}
+
+\NormalTok{dfL }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{Spaghetti Plot}\label{spaghetti-plot-2}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{using} \BuiltInTok{StatsPlots}
+
+\PreprocessorTok{@df}\NormalTok{ dfL }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{warmth, }\OperatorTok{:}\NormalTok{outcome, }
+\NormalTok{               title }\OperatorTok{=} \StringTok{"Outcome by Parental Warmth"}\NormalTok{,}
+\NormalTok{               ylabel }\OperatorTok{=} \StringTok{"outcome"}\NormalTok{,}
+\NormalTok{               xlabel }\OperatorTok{=} \StringTok{"warmth"}\NormalTok{,}
+\NormalTok{               markercolor }\OperatorTok{=} \StringTok{"white"}\NormalTok{,}
+\NormalTok{               markerstrokecolor }\OperatorTok{=} \StringTok{"white"}\NormalTok{,}
+\NormalTok{               group }\OperatorTok{=} \OperatorTok{:}\NormalTok{country,}
+\NormalTok{               legend }\OperatorTok{=} \ConstantTok{false}\NormalTok{,}
+\NormalTok{               smooth}\OperatorTok{=:}\ConstantTok{true}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[H]
+
+\centering{
+
+\includegraphics{graphs_files/figure-pdf/fig-Juliaspagplot-J1.pdf}
+
+}
+
+\caption{\label{fig-Juliaspagplot}Outcome by Parental Warmth (Julia)}
+
+\end{figure}%
 
 \bookmarksetup{startatroot}
 
@@ -566,7 +699,7 @@ Bezanson, Jeff, Alan Edelman, Stefan Karpinski, and Viral B. Shah. 2017.
 59 (1): 65--98. \url{https://doi.org/10.1137/141000671}.
 
 \bibitem[\citeproctext]{ref-Cash2017}
-Cash, Roseanne. 2017. {``Roseanne Cash Reads "Power" by Adrienne
+Cash, Roseanne. 2017. {``Roseanne Cash Reads 'Power' by Adrienne
 Rich.''} In \emph{The Universe in Verse}.
 
 \bibitem[\citeproctext]{ref-Lovelace}
