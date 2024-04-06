@@ -17,6 +17,8 @@ julia_setup(JULIA_HOME = "/Applications/Julia-1.8.app/Contents/Resources/julia/b
 
 ## Scatterplots
 
+A scatterplot is one of the most basic of all data visualizations. At the same time, a scatterplot can be tremendously informative because it provides: the location of every data point (data points may be overprinted); a sense of the distribution of both the *x* and *y* variables; and a sense of the overall trend in the relationship betweeen the two variables, if there is one.
+
 ::: {.panel-tabset group="language"}
 
 ### Stata
@@ -104,7 +106,9 @@ using StatsPlots
 
 :::
 
-## Line Graph
+## Line Graph (Linear Trend)
+
+A line graph of the data focuses in on the linear trend in the data.
 
 ::: {.panel-tabset group="language"}
 
