@@ -6,7 +6,9 @@
 
 ## Introduction
 
-Below, I describe the use of [Stata](https://www.stata.com/) [@StataCorp2021:3], [R](https://www.r-project.org/) [@RProgram], and [Julia](https://www.julialang.org/) [@JuliaArticle] to visualize multilevel models. 
+Below, I describe the use of [Stata](https://www.stata.com/) [@StataCorp2021:3], [R](https://www.r-project.org/)[^ggplot2] [@RProgram], and [Julia](https://www.julialang.org/) [@JuliaArticle] to visualize multilevel models. 
+
+[^ggplot2]: In R, I use the `ggplot2` [@Wickham2016] library.
 
 ## The Data {#sec-data}
 
