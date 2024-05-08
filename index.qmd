@@ -2,8 +2,6 @@
 
 > "Persist and verify... The power that we abdicate to others out of our insecurity - to others who insult us with their faux-intuition or their authoritarian smugness - that comes back to hurt us so deeply... But the power we wrest from our own certitude - that saves us." [@Cash2017]
 
-> "Mathematical Science shows us what is. It is the language of unseen relations between things. But to use & apply that language we must be able fully to appreciate, to feel, to seize, the unseen, the unconscious. Imagination too shows us what is, the is that is beyond the senses." [@Lovelace]
-
 ## Introduction
 
 Below, I describe the use of [Stata](https://www.stata.com/) [@StataCorp2021:3], [R](https://www.r-project.org/)[^ggplot2] [@RProgram], and [Julia](https://www.julialang.org/) [@JuliaArticle] to visualize multilevel models. 
