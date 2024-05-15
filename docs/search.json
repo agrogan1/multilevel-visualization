@@ -14,7 +14,7 @@
     "href": "index.html#introduction",
     "title": "Multilevel Visualization",
     "section": "1.1 Introduction",
-    "text": "1.1 Introduction\nBelow, I describe the use of Stata (StataCorp 2021), R1 (R Core Team 2023), and Julia (Bezanson et al. 2017) to visualize multilevel models.",
+    "text": "1.1 Introduction\nBelow, I describe the use of Stata (StataCorp 2021), R1 (R Core Team 2023; Wickham 2016), and Julia (Bezanson et al. 2017) to visualize multilevel models.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Multilevel Visualization</span>"
     ]
