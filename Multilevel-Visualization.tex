@@ -153,6 +153,22 @@
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
 \makeatletter
@@ -215,7 +231,7 @@
 
 \title{Multilevel Visualization}
 \author{Andrew Grogan-Kaylor}
-\date{2024-05-15}
+\date{2024-05-21}
 
 \begin{document}
 \maketitle
@@ -247,6 +263,14 @@ Below, I describe the use of \href{https://www.stata.com/}{Stata}
   use the \texttt{ggplot2} (Wickham 2016) library.} (R Core Team 2023;
 Wickham 2016), and \href{https://www.julialang.org/}{Julia} (Bezanson et
 al. 2017) to visualize multilevel models.
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, bottomrule=.15mm, rightrule=.15mm, opacityback=0, breakable, leftrule=.75mm, toptitle=1mm, coltitle=black, left=2mm, bottomtitle=1mm, colback=white, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Comparison of Software}, arc=.35mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, colframe=quarto-callout-tip-color-frame]
+
+See my discussion of the advantages and disadvantages of different
+software in the Appendix on estimation of multilevel models with
+different software.
+
+\end{tcolorbox}
 
 \section{The Data}\label{sec-data}
 
@@ -308,12 +332,12 @@ physical\_punishment
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-1 & 69 & 1 & 1.1 & 2 & 0 & 3 \\
-1 & 69 & 2 & 1.2 & 2 & 1 & 2 \\
-1 & 69 & 3 & 1.3 & 1 & 1 & 3 \\
-1 & 69 & 4 & 1.4 & 2 & 0 & 0 \\
-1 & 69 & 5 & 1.5 & 2 & 0 & 4 \\
-1 & 69 & 6 & 1.6 & 1 & 1 & 5 \\
+1 & 69 & 1 & 1.1 & 1 & 0 & 3 \\
+1 & 69 & 2 & 1.2 & 1 & 1 & 2 \\
+1 & 69 & 3 & 1.3 & 0 & 1 & 3 \\
+1 & 69 & 4 & 1.4 & 1 & 0 & 0 \\
+1 & 69 & 5 & 1.5 & 1 & 0 & 4 \\
+1 & 69 & 6 & 1.6 & 0 & 1 & 5 \\
 
 \end{longtable}
 
@@ -347,6 +371,16 @@ outcome
 \bookmarksetup{startatroot}
 
 \chapter{Graphs}\label{graphs}
+
+\begin{tcolorbox}[enhanced jigsaw, toprule=.15mm, bottomrule=.15mm, rightrule=.15mm, opacityback=0, breakable, leftrule=.75mm, toptitle=1mm, coltitle=black, left=2mm, bottomtitle=1mm, colback=white, titlerule=0mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Order of Variables}, arc=.35mm, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, colframe=quarto-callout-caution-color-frame]
+
+Across software platforms pay attention to the order of variables. I
+generally use \texttt{x} for an \emph{independent} variable along the
+horizontal axis and \texttt{y} for a \emph{dependent} variable along the
+vertical axis. Different software asks for the variables to be listed in
+different order so it is worth paying close attention to the syntax.
+
+\end{tcolorbox}
 
 \section{Scatterplots}\label{scatterplots}
 
