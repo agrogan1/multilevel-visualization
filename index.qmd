@@ -6,6 +6,12 @@
 
 Below, I describe the use of [Stata](https://www.stata.com/) [@StataCorp2021:3], [R](https://www.r-project.org/)[^ggplot2] [@RProgram; @Wickham2016], and [Julia](https://www.julialang.org/) [@JuliaArticle] to visualize multilevel models. 
 
+::: {.callout-tip}
+## Comparison of Software
+
+See my discussion of the advantages and disadvantages of different software in the Appendix on estimation of multilevel models with different software.
+:::
+
 [^ggplot2]: In R, I use the `ggplot2` [@Wickham2016] library.
 
 ## The Data {#sec-data}
