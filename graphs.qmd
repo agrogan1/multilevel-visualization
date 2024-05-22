@@ -229,6 +229,12 @@ use simulated_multilevel_data.dta
 
 #### Spaghetti Plot
 
+::: {.callout-tip}
+##### Installing `spagplot`
+
+`spagplot` is a user written command. Type `findit spagplot` to install.
+:::
+
 ```{stata}
 #| fig-height: 3
 
