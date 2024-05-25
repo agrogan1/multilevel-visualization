@@ -231,7 +231,7 @@
 
 \title{Multilevel Visualization}
 \author{Andrew Grogan-Kaylor}
-\date{2024-05-22}
+\date{2024-05-25}
 
 \begin{document}
 \maketitle
@@ -259,12 +259,12 @@ saves us.'' (Cash 2017)
 \section{Introduction}\label{introduction}
 
 Below, I describe the use of \href{https://www.stata.com/}{Stata}
-(StataCorp 2021), \href{https://www.r-project.org/}{R}\footnote{In R, I
+(StataCorp 2023), \href{https://www.r-project.org/}{R}\footnote{In R, I
   use the \texttt{ggplot2} (Wickham 2016) library.} (R Core Team 2023;
 Wickham 2016), and \href{https://www.julialang.org/}{Julia} (Bezanson et
 al. 2017) to visualize multilevel models.
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, rightrule=.15mm, colback=white, toprule=.15mm, coltitle=black, colframe=quarto-callout-tip-color-frame, opacityback=0, arc=.35mm, bottomrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Comparison of Software}, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, titlerule=0mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, toprule=.15mm, bottomrule=.15mm, coltitle=black, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Comparison of Software}, breakable, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, colback=white, left=2mm]
 
 See my discussion of the advantages and disadvantages of different
 software in the Appendix on estimation of multilevel models with
@@ -372,7 +372,7 @@ outcome
 
 \chapter{Graphs}\label{graphs}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, rightrule=.15mm, colback=white, toprule=.15mm, coltitle=black, colframe=quarto-callout-caution-color-frame, opacityback=0, arc=.35mm, bottomrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Order of Variables}, colbacktitle=quarto-callout-caution-color!10!white, left=2mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, titlerule=0mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, toprule=.15mm, bottomrule=.15mm, coltitle=black, bottomtitle=1mm, colframe=quarto-callout-caution-color-frame, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Order of Variables}, breakable, leftrule=.75mm, colbacktitle=quarto-callout-caution-color!10!white, toptitle=1mm, colback=white, left=2mm]
 
 Across software platforms pay attention to the order of variables. I
 generally use \texttt{x} for an \emph{independent} variable along the
@@ -645,7 +645,7 @@ install this command.
 
 \subsubsection{Spaghetti Plot}\label{spaghetti-plot}
 
-\begin{tcolorbox}[enhanced jigsaw, leftrule=.75mm, rightrule=.15mm, colback=white, toprule=.15mm, coltitle=black, colframe=quarto-callout-tip-color-frame, opacityback=0, arc=.35mm, bottomrule=.15mm, opacitybacktitle=0.6, toptitle=1mm, bottomtitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Installing \texttt{spagplot}}, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, breakable]
+\begin{tcolorbox}[enhanced jigsaw, rightrule=.15mm, titlerule=0mm, arc=.35mm, opacityback=0, opacitybacktitle=0.6, toprule=.15mm, bottomrule=.15mm, coltitle=black, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Installing \texttt{spagplot}}, breakable, leftrule=.75mm, colbacktitle=quarto-callout-tip-color!10!white, toptitle=1mm, colback=white, left=2mm]
 
 \texttt{spagplot} is a user written command. Type
 \texttt{findit\ spagplot} to install.
@@ -784,8 +784,8 @@ R Core Team. 2023. \emph{R: A Language and Environment for Statistical
 Computing}. Vienna, Austria: R Foundation for Statistical Computing.
 \url{https://www.R-project.org/}.
 
-\bibitem[\citeproctext]{ref-StataCorp2021:3}
-StataCorp. 2021. \emph{Stata 17 Graphics Reference Manual}. Stata Press.
+\bibitem[\citeproctext]{ref-StataCorp2023}
+StataCorp. 2023. \emph{Stata 18 Graphics Reference Manual}. Stata Press.
 
 \bibitem[\citeproctext]{ref-Wickham2016}
 Wickham, Hadley. 2016. \emph{{ggplot2}: Elegant Graphics for Data
