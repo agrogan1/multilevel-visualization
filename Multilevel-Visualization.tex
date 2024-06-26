@@ -264,7 +264,7 @@ Below, I describe the use of \href{https://www.stata.com/}{Stata}
 Wickham 2016), and \href{https://www.julialang.org/}{Julia} (Bezanson et
 al. 2017) to visualize multilevel models.
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, toprule=.15mm, left=2mm, titlerule=0mm, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Comparison of Software}, bottomtitle=1mm, toptitle=1mm, arc=.35mm, coltitle=black, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, colback=white, coltitle=black, arc=.35mm, opacityback=0, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Comparison of Software}, breakable, bottomrule=.15mm, leftrule=.75mm]
 
 See my discussion of the advantages and disadvantages of different
 software in the Appendix on estimation of multilevel models with
@@ -372,7 +372,7 @@ outcome
 
 \chapter{Graphs}\label{graphs}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, toprule=.15mm, left=2mm, titlerule=0mm, colframe=quarto-callout-caution-color-frame, breakable, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Order of Variables}, bottomtitle=1mm, toptitle=1mm, arc=.35mm, coltitle=black, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, colback=white, coltitle=black, arc=.35mm, opacityback=0, opacitybacktitle=0.6, colbacktitle=quarto-callout-caution-color!10!white, left=2mm, colframe=quarto-callout-caution-color-frame, toptitle=1mm, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-caution-color}{\faFire}\hspace{0.5em}{Order of Variables}, breakable, bottomrule=.15mm, leftrule=.75mm]
 
 Across software platforms pay attention to the order of variables. I
 generally use \texttt{x} for an \emph{independent} variable along the
@@ -586,7 +586,7 @@ A line graph of the data focuses in on the linear trend in the data.
 \begin{Highlighting}[]
 \ImportTok{using} \BuiltInTok{Tables}\NormalTok{, }\BuiltInTok{MixedModels}\NormalTok{, }\BuiltInTok{StatFiles}\NormalTok{, }\BuiltInTok{DataFrames}\NormalTok{, }\BuiltInTok{CategoricalArrays}\NormalTok{, }\BuiltInTok{DataFramesMeta}
 
-\NormalTok{dfL }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{))}
+\NormalTok{df }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -600,7 +600,7 @@ and the \texttt{smooth} option to \texttt{:true}.
 \begin{Highlighting}[]
 \ImportTok{using} \BuiltInTok{StatsPlots}
 
-\PreprocessorTok{@df}\NormalTok{ dfL }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{warmth, }\OperatorTok{:}\NormalTok{outcome, }
+\PreprocessorTok{@df}\NormalTok{ df }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{warmth, }\OperatorTok{:}\NormalTok{outcome, }
 \NormalTok{               title }\OperatorTok{=} \StringTok{"Outcome by Parental Warmth"}\NormalTok{,}
 \NormalTok{               ylabel }\OperatorTok{=} \StringTok{"outcome"}\NormalTok{,}
 \NormalTok{               xlabel }\OperatorTok{=} \StringTok{"warmth"}\NormalTok{,}
@@ -645,7 +645,7 @@ install this command.
 
 \subsubsection{Spaghetti Plot}\label{spaghetti-plot}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, toprule=.15mm, left=2mm, titlerule=0mm, colframe=quarto-callout-tip-color-frame, breakable, opacityback=0, rightrule=.15mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Installing \texttt{spagplot}}, bottomtitle=1mm, toptitle=1mm, arc=.35mm, coltitle=black, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, leftrule=.75mm]
+\begin{tcolorbox}[enhanced jigsaw, colback=white, coltitle=black, arc=.35mm, opacityback=0, opacitybacktitle=0.6, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, toprule=.15mm, rightrule=.15mm, bottomtitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{Installing \texttt{spagplot}}, breakable, bottomrule=.15mm, leftrule=.75mm]
 
 \texttt{spagplot} is a user written command. Type
 \texttt{findit\ spagplot} to install.
@@ -727,7 +727,7 @@ install this command.
 \begin{Highlighting}[]
 \ImportTok{using} \BuiltInTok{Tables}\NormalTok{, }\BuiltInTok{MixedModels}\NormalTok{, }\BuiltInTok{StatFiles}\NormalTok{, }\BuiltInTok{DataFrames}\NormalTok{, }\BuiltInTok{CategoricalArrays}\NormalTok{, }\BuiltInTok{DataFramesMeta}
 
-\NormalTok{dfL }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{))}
+\NormalTok{df }\OperatorTok{=} \FunctionTok{DataFrame}\NormalTok{(}\FunctionTok{load}\NormalTok{(}\StringTok{"simulated\_multilevel\_data.dta"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -737,7 +737,7 @@ install this command.
 \begin{Highlighting}[]
 \ImportTok{using} \BuiltInTok{StatsPlots}
 
-\PreprocessorTok{@df}\NormalTok{ dfL }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{warmth, }\OperatorTok{:}\NormalTok{outcome, }
+\PreprocessorTok{@df}\NormalTok{ df }\FunctionTok{scatter}\NormalTok{(}\OperatorTok{:}\NormalTok{warmth, }\OperatorTok{:}\NormalTok{outcome, }
 \NormalTok{               title }\OperatorTok{=} \StringTok{"Outcome by Parental Warmth"}\NormalTok{,}
 \NormalTok{               ylabel }\OperatorTok{=} \StringTok{"outcome"}\NormalTok{,}
 \NormalTok{               xlabel }\OperatorTok{=} \StringTok{"warmth"}\NormalTok{,}
