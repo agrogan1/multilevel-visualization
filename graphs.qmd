@@ -184,7 +184,7 @@ labs(title = "Outcome by Parental Warmth")
 
 using Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta
 
-dfL = DataFrame(load("simulated_multilevel_data.dta"))
+df = DataFrame(load("simulated_multilevel_data.dta"))
 
 ```
 
@@ -199,7 +199,7 @@ To make our plot with a smoother in Julia, we set the `markercolor` and `markers
 
 using StatsPlots
 
-@df dfL scatter(:warmth, :outcome, 
+@df df scatter(:warmth, :outcome, 
                title = "Outcome by Parental Warmth",
                ylabel = "outcome",
                xlabel = "warmth",
@@ -295,7 +295,7 @@ labs(title = "Outcome by Parental Warmth")
 
 using Tables, MixedModels, StatFiles, DataFrames, CategoricalArrays, DataFramesMeta
 
-dfL = DataFrame(load("simulated_multilevel_data.dta"))
+df = DataFrame(load("simulated_multilevel_data.dta"))
 
 ```
 
@@ -309,7 +309,7 @@ dfL = DataFrame(load("simulated_multilevel_data.dta"))
 
 using StatsPlots
 
-@df dfL scatter(:warmth, :outcome, 
+@df df scatter(:warmth, :outcome, 
                title = "Outcome by Parental Warmth",
                ylabel = "outcome",
                xlabel = "warmth",
