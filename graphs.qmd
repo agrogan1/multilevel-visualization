@@ -20,7 +20,7 @@ julia_setup(JULIA_HOME = "/Applications/Julia-1.10.app/Contents/Resources/julia/
 ::: {.callout-caution}
 ## Order of Variables
 
-Across software platforms pay attention to the order of variables. I generally use `x` for an *independent* variable along the horizontal axis and `y` for a *dependent* variable along the vertical axis. Different software asks for the variables to be listed in different order so it is worth paying close attention to the syntax.
+Across software platforms, pay attention to the order of variables. I generally use `x` for an *independent* variable along the horizontal axis and `y` for a *dependent* variable along the vertical axis. Different software asks for the variables to be listed in different order, or different ways, so it is worth paying close attention to the syntax.
 :::
 
 ## Scatterplots
