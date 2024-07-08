@@ -16,7 +16,11 @@ See my discussion of the advantages and disadvantages of different software in t
 
 ## The Data {#sec-data}
 
-The examples use the `simulated_multilevel_data.dta` file from [*Multilevel Thinking*](https://agrogan1.github.io/multilevel-thinking/simulated-multi-country-data.html). Here is a [direct link](https://github.com/agrogan1/multilevel-multilingual/raw/main/simulated_multilevel_data.dta) to download the data.
+::: {.callout-note}
+### Dataset
+
+The examples use the `simulated_multilevel_data.dta` file. Here is a [direct link](https://github.com/agrogan1/multilevel-multilingual/raw/main/simulated_multilevel_data.dta) to download the data.
+:::
 
 ```{r}
 #| echo: false
