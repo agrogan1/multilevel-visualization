@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Multilevel Visualization - 2&nbsp; Graphs</title>
+<title>2&nbsp; Graphs – Multilevel Visualization</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -110,10 +110,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="multilevel-visualization.css">
-<meta property="og:title" content="Multilevel Visualization - 2&nbsp; Graphs">
+<meta property="og:title" content="2&nbsp; Graphs – Multilevel Visualization">
 <meta property="og:description" content="">
 <meta property="og:site_name" content="Multilevel Visualization">
-<meta name="twitter:title" content="Multilevel Visualization - 2&nbsp; Graphs">
+<meta name="twitter:title" content="2&nbsp; Graphs – Multilevel Visualization">
 <meta name="twitter:description" content="">
 <meta name="twitter:card" content="summary">
 </head>
@@ -129,27 +129,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <span class="navbar-title">Multilevel Visualization</span>
     </a>
   </div>
-        <div class="quarto-navbar-tools tools-wide">
+        <div class="quarto-navbar-tools tools-wide tools-end">
     <a href="https://github.com/agrogan1/multilevel-visualization" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="./Multilevel-Visualization.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
+              <i class="bi bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
@@ -162,11 +162,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./graphs.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Graphs</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -269,10 +269,10 @@ Order of Variables
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="kw">scatter</span>.png, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fig-Stata" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Stata" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Stata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="scatter.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="scatter.png" class="img-fluid figure-img"></a>
+<a href="scatter.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;2.1: Outcome by Parental Warmth (Stata)"><img src="scatter.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Stata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.1: Outcome by Parental Warmth (Stata)
@@ -301,10 +301,10 @@ Figure&nbsp;2.1: Outcome by Parental Warmth (Stata)
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Outcome by Parental Warmth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-R" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-R" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-R-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="graphs_files/figure-html/fig-R-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="graphs_files/figure-html/fig-R-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="graphs_files/figure-html/fig-R-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2.2: Outcome by Parental Warmth (R)"><img src="graphs_files/figure-html/fig-R-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-R-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.2: Outcome by Parental Warmth (R)
@@ -334,10 +334,10 @@ Figure&nbsp;2.2: Outcome by Parental Warmth (R)
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>               ylabel <span class="op">=</span> <span class="st">"outcome"</span>,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               xlabel <span class="op">=</span> <span class="st">"parental warmth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-Julia" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Julia" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Julia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="graphs_files/figure-html/fig-Julia-J1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="graphs_files/figure-html/fig-Julia-J1.png" class="img-fluid figure-img" width="300"></a>
+<a href="graphs_files/figure-html/fig-Julia-J1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;2.3: Outcome by Parental Warmth (Julia)"><img src="graphs_files/figure-html/fig-Julia-J1.png" class="img-fluid figure-img" width="300"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Julia-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.3: Outcome by Parental Warmth (Julia)
@@ -374,10 +374,10 @@ Figure&nbsp;2.3: Outcome by Parental Warmth (Julia)
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="kw">lfit</span>.png, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fig-Statalfit" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Statalfit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Statalfit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="lfit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="lfit.png" class="img-fluid figure-img"></a>
+<a href="lfit.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Figure&nbsp;2.4: Outcome by Parental Warmth (Stata)"><img src="lfit.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Statalfit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.4: Outcome by Parental Warmth (Stata)
@@ -406,10 +406,10 @@ Figure&nbsp;2.4: Outcome by Parental Warmth (Stata)
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Outcome by Parental Warmth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-Rlfit" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Rlfit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Rlfit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="graphs_files/figure-html/fig-Rlfit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="graphs_files/figure-html/fig-Rlfit-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="graphs_files/figure-html/fig-Rlfit-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Figure&nbsp;2.5: Outcome by Parental Warmth (R)"><img src="graphs_files/figure-html/fig-Rlfit-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rlfit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.5: Outcome by Parental Warmth (R)
@@ -443,10 +443,10 @@ Figure&nbsp;2.5: Outcome by Parental Warmth (R)
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>               markerstrokecolor <span class="op">=</span> <span class="st">"white"</span>,</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>               smooth<span class="op">=:</span><span class="cn">true</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-Julialfit" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Julialfit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Julialfit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="graphs_files/figure-html/fig-Julialfit-J1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6"><img src="graphs_files/figure-html/fig-Julialfit-J1.png" class="img-fluid figure-img" width="300"></a>
+<a href="graphs_files/figure-html/fig-Julialfit-J1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="Figure&nbsp;2.6: Outcome by Parental Warmth (Julia)"><img src="graphs_files/figure-html/fig-Julialfit-J1.png" class="img-fluid figure-img" width="300"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Julialfit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.6: Outcome by Parental Warmth (Julia)
@@ -498,10 +498,10 @@ Installing <code>spagplot</code>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> spagplot.png, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="fig-Stataspagplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Stataspagplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Stataspagplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="spagplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7"><img src="spagplot.png" class="img-fluid figure-img"></a>
+<a href="spagplot.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" title="Figure&nbsp;2.7: Outcome by Parental Warmth (Stata)"><img src="spagplot.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Stataspagplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.7: Outcome by Parental Warmth (Stata)
@@ -536,10 +536,10 @@ Figure&nbsp;2.7: Outcome by Parental Warmth (Stata)
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">linewidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Outcome by Parental Warmth"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-Rspagplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Rspagplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Rspagplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="graphs_files/figure-html/fig-Rspagplot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8"><img src="graphs_files/figure-html/fig-Rspagplot-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="graphs_files/figure-html/fig-Rspagplot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" title="Figure&nbsp;2.8: Outcome by Parental Warmth (R)"><img src="graphs_files/figure-html/fig-Rspagplot-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Rspagplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.8: Outcome by Parental Warmth (R)
@@ -574,10 +574,10 @@ Figure&nbsp;2.8: Outcome by Parental Warmth (R)
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>               legend <span class="op">=</span> <span class="cn">false</span>,</span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>               smooth<span class="op">=:</span><span class="cn">true</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-Juliaspagplot" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-Juliaspagplot" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-Juliaspagplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="graphs_files/figure-html/fig-Juliaspagplot-J1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9"><img src="graphs_files/figure-html/fig-Juliaspagplot-J1.png" class="img-fluid figure-img" width="300"></a>
+<a href="graphs_files/figure-html/fig-Juliaspagplot-J1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" title="Figure&nbsp;2.9: Outcome by Parental Warmth (Julia)"><img src="graphs_files/figure-html/fig-Juliaspagplot-J1.png" class="img-fluid figure-img" width="300"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-Juliaspagplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.9: Outcome by Parental Warmth (Julia)
@@ -592,17 +592,6 @@ Figure&nbsp;2.9: Outcome by Parental Warmth (Julia)
 </div>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;2.1: Outcome by Parental Warmth (Stata)</span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2.2: Outcome by Parental Warmth (R)</span>
-<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;2.3: Outcome by Parental Warmth (Julia)</span>
-<span class="glightbox-desc lightbox-desc-4">Figure&nbsp;2.4: Outcome by Parental Warmth (Stata)</span>
-<span class="glightbox-desc lightbox-desc-5">Figure&nbsp;2.5: Outcome by Parental Warmth (R)</span>
-<span class="glightbox-desc lightbox-desc-6">Figure&nbsp;2.6: Outcome by Parental Warmth (Julia)</span>
-<span class="glightbox-desc lightbox-desc-7">Figure&nbsp;2.7: Outcome by Parental Warmth (Stata)</span>
-<span class="glightbox-desc lightbox-desc-8">Figure&nbsp;2.8: Outcome by Parental Warmth (R)</span>
-<span class="glightbox-desc lightbox-desc-9">Figure&nbsp;2.9: Outcome by Parental Warmth (Julia)</span>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -785,18 +774,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -828,7 +806,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/agrogan1\.github\.io\/multilevel-visualization\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -863,7 +881,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1139,7 +1161,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link  aria-label=" &lt;span="" visualization&lt;="" span&gt;"="">
+      <a href="./index.html" class="pagination-link" aria-label="Multilevel Visualization">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Multilevel Visualization</span></span>
       </a>          
   </div>
@@ -1150,30 +1172,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/agrogan1/multilevel-visualization/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/agrogan1/multilevel-visualization/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 
